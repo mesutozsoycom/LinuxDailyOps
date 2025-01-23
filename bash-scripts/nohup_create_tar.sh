@@ -1,0 +1,1 @@
+nohup bash -c  'for app in `ls` ; do tar -cf /deploy/$app.tar $app ; echo "Archived : $app OK" ; done' &>/dev/null & disown
