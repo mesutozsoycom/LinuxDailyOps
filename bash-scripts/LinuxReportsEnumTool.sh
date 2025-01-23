@@ -150,7 +150,7 @@ function getSecurityModule() {
     echo "----------------------------------------------------"
 }
 
-#rootCheck
+rootCheck
 getBasicInfo
 getNetworkInfo
 getDNSInfo

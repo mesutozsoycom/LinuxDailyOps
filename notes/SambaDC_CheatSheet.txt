@@ -1,0 +1,23 @@
+samba-tool domain tombstones expunge --tombstone-lifetime=0
+
+nohup bash -c  "ldbsearch --cross-ncs --show-deleted -H /var/lib/samba/private/sam.ldb | grep "\0ADEL" " |& tee -a log_-$(date +"%b%d-%Y-%H%M%S").txt &>/dev/null & disown
+
+nohup bash -c  "samba-tool dbcheck --cross-ncs --fix --yes" |& tee -a log_dbcheck.txt &>/dev/null & disown
+
+nohup bash -c  "samba-tool domain tombstones expunge --tombstone-lifetime=0" |& tee -a /root/log_tombstone-$(date +"%b%d-%Y-%H%M%S").txt &>/dev/null & disown
+
+nohup bash -c  "samba-tool dbcheck --cross-ncs --fix --yes" |& tee -a log_dbcheck-$(date +"%b%d-%Y-%H%M%S").txt &>/dev/null & disown
+
+
+ldbsearch --cross-ncs --show-deleted -H /var/lib/samba/private/sam.ldb | grep "\0ADEL" 
+ldbsearch --cross-ncs --show-deleted -H /var/lib/samba/private/sam.ldb | grep "\0ACNF"
+
+ldbdel --cross-ncs --show-deleted --relax -H /var/lib/samba/private/sam.ldb 'CN=DESKTOP\0ACNF:404a0cd2-c06b-4e7a-ad9e-f542a45e2cec,OU=Computers,DC=mesut,DC=local'
+----------------------------------------------------------cleanadel.sh----------------------------------------------------
+
+#!/bin/bash
+file=$1
+while read -r line; do
+ ldbdel --cross-ncs --show-deleted --relax -H /var/lib/samba/private/sam.ldb "$line"
+done < "$file"
+exit 0
