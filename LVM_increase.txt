@@ -1,0 +1,9 @@
+pvcreate /dev/sdf
+vgextend volapp01 /dev/sdf
+lvextend -l +100%Free /dev/volapp01/lvapp01
+xfs_growfs /dev/volapp01/lvapp01
+#resize2fs /dev/volapp01/lvapp01 # User ext4 format
+
+
+
+
