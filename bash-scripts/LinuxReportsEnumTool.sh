@@ -97,7 +97,7 @@ function getDNSInfo() {
 function getSiemCheck() {
 	echo ""
   	echo "[SIEM Bilgisi]"
-	grep -E 'ptt|10.123.22.152' /etc/rsyslog.conf
+	grep -E 'splunk|10.10.10.111 /etc/rsyslog.conf
 	echo ""
     echo "----------------------------------------------------"
 }
