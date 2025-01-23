@@ -46,15 +46,5 @@ Bu projeye katkıda bulunmak ister misiniz? Harika! Lütfen şu adımları izley
 
 ---
 
-## 📬 İletişim
-Herhangi bir sorunuz varsa, [e-posta adresinizi buraya ekleyin] veya GitHub Issues üzerinden bana ulaşabilirsiniz.
-
----
-
-## 📜 Lisans
-Bu proje MIT Lisansı ile lisanslanmıştır. Daha fazla bilgi için `LICENSE` dosyasına göz atabilirsiniz.
-
----
-
 ## 🌟 Teşekkürler
 Bu projeyi kullanarak Linux sistem yönetiminizi daha verimli hale getirdiğiniz için teşekkür ederiz! ⭐
